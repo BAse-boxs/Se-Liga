@@ -8,6 +8,7 @@
     <link rel="shortcut icon" href="img/favicon.ico" type="image/x-icon">
     <link rel="stylesheet" href="stryle.css">
     <title>Se liga em </title>
+
 </head>
 
 <body>
@@ -15,15 +16,28 @@
         <h1 class="ti">Happy birthday</h1>
     </header>
     <main>
-        <a href=""><img class="dis" src="https://cdn.icon-icons.com/icons2/40/PNG/128/flagofBrazil_6577.png"><span>
-               click para ouvir a musica!!!
-            </span></a>
-        <audio class="" preload="metadata" autoplay  control>
-            <source src="img/1.mp3">
+
+
+        <!-- Play Button -->
+        <a id="podcast-play" onclick="playShow()" ><i class="ion-ios-play"></i></a>
+      
+        <!-- Pause Button -->
+        <a class="t" id="podcast-pause"   onclick="pauseShow()"   style="display:none;"><i class="oi"
+                class="ion-ios-pause"></i></a>
+        <span>👈 aperte </span>
+        </div>
+
+
+        <!-- Audio player -->
+        <audio id="podcast-audio" >
+            <source src="img/1.wav">
             <source src="img/1.mp3">
             <source src="img/Careless Whisper .ogg">
         </audio>
+        </div>
 
+
+        <br><br>
         <input type="checkbox" id="switch" />
 
         <div class="flip-container">
@@ -36,7 +50,7 @@
                 <div class="back">
 
                     <img class="iu" src="img/bolo.jpg" /><br>
-                    <p class="i">Pois tome um Bolo </p>
+                    <p class="i">Então tome um Bolo </p>
                 </div>
             </div>
         </div>
@@ -55,7 +69,34 @@
 
 
 
+    <script>
 
+
+        var podcastAudio = document.getElementById('podcast-audio');
+
+        // Grab ID of play button
+        var playBtn = document.getElementById('podcast-play');
+
+        // Grab ID of pause button
+        var pauseBtn = document.getElementById('podcast-pause');
+
+        // Play audio & show pause btn
+        var playShow = function () {
+            podcastAudio.play();
+            playBtn.style.display = "none";
+            pauseBtn.style.display = "inline-block";
+        };
+
+        // Pause audio & show play btn
+        var pauseShow = function () {
+            podcastAudio.pause();
+            playBtn.style.display = "inline-block";
+            pauseBtn.style.display = "none";
+        };
+
+
+
+    </script>
 
 
 
